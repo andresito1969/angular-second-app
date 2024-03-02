@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-list',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './recipe-list.component.css'
 })
 export class RecipeListComponent {
-
+  imgUrl: string = "https://imag.bonviveur.com/ceviche-de-camaron.jpg";
+  imgUrl2: string = "https://upload.wikimedia.org/wikipedia/commons/2/2d/Semifinal_del_Campeonato_del_Encebollado_en_Esmeraldas_2015_%2818062294436%29.jpg";
+  recipeList: Recipe[] = [
+    new Recipe('Ceviche', 'Ecuatoriano, limón, Gambas ...', this.imgUrl),
+    new Recipe('Encebollado', 'Pescado, gambas, cebolla', this.imgUrl2)
+  ];
 }
