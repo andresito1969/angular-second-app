@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './nav-menu.component.css'
 })
 export class NavMenuComponent {
+  @Output() selectedNav = new EventEmitter<string>();
 
+  selectedMenu = (selectedRoute: string) => {
+    this.selectedNav.emit(selectedRoute);
+  }
 }
