@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -13,4 +13,10 @@ export class RecipeListComponent {
     new Recipe('Ceviche', 'Ecuatoriano, limón, Gambas ...', this.imgUrl),
     new Recipe('Encebollado', 'Pescado, gambas, cebolla', this.imgUrl2)
   ];
+
+  @Output() currentRecipe = new EventEmitter<Recipe>();
+
+  recipeElem = (recipe: Recipe) => {
+    this.currentRecipe.emit(recipe);
+  };
 }
