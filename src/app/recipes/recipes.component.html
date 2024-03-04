@@ -4,6 +4,11 @@
         (currentRecipe)="currentRecipeElem($event)"></app-recipe-list>
     </div>
     <div class="col-md-7">
-        <app-recipe-detail [recipe]="detailRecipe"></app-recipe-detail>
+        <app-recipe-detail 
+            [recipe]="detailRecipe"
+            *ngIf="detailRecipe; else notSelectedText"></app-recipe-detail>
+        <ng-template #notSelectedText>
+            <p>Select a recipe!</p>
+        </ng-template>
     </div>
 </div>
